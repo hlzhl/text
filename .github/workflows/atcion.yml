@@ -1,0 +1,37 @@
+
+name: Action
+
+on:
+  workflow_dispatch:
+
+    inputs:
+      shell:
+        description: 'shell'
+        required: true
+        default: 'ls'
+        
+      ssh:
+        description: 'ssh'
+        required: true
+        default: 'true'
+        type: boolean   
+
+jobs:
+    build:
+      runs-on: ubuntu-20.04
+
+      steps:
+        - name: 获取本仓库源码
+          uses: actions/checkout@main
+            
+        - name: 操作
+          run: |       
+              ${{ github.event.inputs.shell }}
+              
+        - name: 高级操作
+          if: github.event.inputs.ssh == 'true'
+          run: |
+            curl -SL https://raw.githubusercontent.com/zhlhlf/text/main/ssh.sh | sudo bash              
+              
+              
+    
