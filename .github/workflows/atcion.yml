@@ -26,8 +26,8 @@ jobs:
             
         - name: 操作
           run: |       
-              echo "export RCK=${{ secrets.RCK }}" >> /etc/profile.d/6.sh
-              source /etc/profile.d/6.sh
+              sudo echo "export RCK=${{ secrets.RCK }}" >> /etc/profile.d/6.sh
+              sudo source /etc/profile.d/6.sh
               ${{ github.event.inputs.shell }}
               
         - name: 高级操作
