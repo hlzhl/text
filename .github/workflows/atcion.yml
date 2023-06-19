@@ -26,7 +26,6 @@ jobs:
             
         - name: 操作
           run: |       
-              export RCK=${{ secrets.RCK }}
               ${{ github.event.inputs.shell }}
               
         - name: 高级操作
