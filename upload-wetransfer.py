@@ -305,12 +305,6 @@ class we:
 
 if __name__ == "__main__":
     qw=we()
-    if sys.argv[0] != "-d":
-        print("-u file upload      -d link download")
-        exit()
-    if sys.argv[0] != "-u":
-        print("-u file upload      -d link download")
-        exit()
     for i in sys.argv[2:]:
         if sys.argv[1] == "-u":
           print(i)
