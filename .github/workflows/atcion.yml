@@ -8,7 +8,7 @@ on:
       shell:
         description: 'shell'
         required: true
-        default: 'ls'
+        default: 'ls ; '
         
       ssh:
         description: 'ssh'
