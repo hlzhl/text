@@ -11,7 +11,7 @@ aria2c -x10 "$a1" -o ttt/rom.zip ; unzip ttt/rom.zip ; wget https://github.com/z
 
 ```
 ```
-echo "阉割脚本-------------------" ; repacktools="";       rmapps="";        cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; wget $repacktools -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; chmod 777 * ; bash unpack_img.sh ;  cd project ; wget "$mapps" -o apps.txt ; for i in $(cat apps.txt); do aa=$(find ./ -name "$(basename $i)"); echo "del---$aa"; rm -rf "$aa"; done ; rm -rf */del-app*/*; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
+echo "阉割脚本-------------------" ; repacktools="";       rmapps="";        cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; chmod 777 * ; bash unpack_img.sh ;  cd project ; wget "$mapps" -o apps.txt ; for i in $(cat apps.txt); do aa=$(find ./ -name "$(basename $i)"); echo "del---$aa"; rm -rf "$aa"; done ; rm -rf */del-app*/*; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
 ```
 ```
 echo "A only------------------------";
