@@ -33,7 +33,6 @@ jobs:
           if: github.event.inputs.ssh == 'true'
           run: |
             curl -SL http://raw.github.com/zhlhlf/text/main/ssh.sh | sudo bash    
-            wget -q https://raw.githubusercontent.com/zhlhlf/text/main/onedrive_mount.sh && sh onedrive_mount.sh ${{ secrets.RCK }} 临时存放文件
-              
+    
               
     
