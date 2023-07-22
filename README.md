@@ -1,4 +1,5 @@
 ```
+echo "AB------------------------";
 a1="" ;
 fw="" ;
 name="";
@@ -9,8 +10,11 @@ image="boot.img dtbo.img odm.img product.img system.img system_ext.img vbmeta.im
 aria2c -x10 "$a1" -o ttt/rom.zip ; unzip ttt/rom.zip ; wget https://github.com/zhlhlf/text/raw/main/payload-dumper-go ; chmod 777 payload-dumper-go ; aria2c -x10 "${flash_scripts}" -o shelll.7z ; 7z x shelll.7z ; mv ab_flash_scripts ${name} ; mkdir ${name}/images ; log=$(./payload-dumper-go -o limages payload.bin) ; rm -rf rom.zip ; rm -rf payload.bin ; for i in $image ; do mv limages/$i ${name}/images/ ; done ; mv limages/my_* ${name}/images/ || echo "没有my_*\n"; rm -r limages ; rm -r payload.bin && rm -r ttt ; aria2c -x10 "$fw" -o zzzz.zip ; unzip zzzz.zip -d ${name} ; rm -r ${name}/META-INF ; $shell ; 7z a ${name}.7z ${name} ; rm -rf 666 ; mkdir 666 ; mv ${name}.7z 666 ; wget https://raw.github.com/zhlhlf/text/main/onedrive_mount.sh ; sh onedrive_mount.sh 0000 临时存放文件 ；
 
 ```
-
 ```
+echo "阉割脚本-------------------" ; repacktools="";       rmapps="";        cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; wget $repacktools -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; chmod 777 * ; bash unpack_img.sh ;  cd project ; wget "$mapps" -o apps.txt ; for i in $(cat apps.txt); do aa=$(find ./ -name "$(basename $i)"); echo "del---$aa"; rm -rf "$aa"; done ; rm -rf */del-app*/*; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
+```
+```
+echo "A only------------------------";
 url="" ; 
 name="" ; 
 shell="" ;
