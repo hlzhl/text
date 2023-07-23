@@ -22,3 +22,8 @@ name="$name-$(date +%Y-%m-%d)";
 fs="https://watery-quill-felidae.glitch.me/%E4%B8%80%E5%8A%A09r/A_flash_scripts.7z";
 aria2c -x10 "$fs" -o fs.7z ; 7z x fs.7z; mv A_flash_scripts $name ; 
 aria2c -x10 "$url" -o works/rom.zip ; cd works ; git clone https://github.com/zhlhlf/D.N.A-2 -b x86_64 dddd ; chmod 777 dddd/local/bin/x86_64 -R ; export rr=$(pwd)/dddd/local/bin/x86_64/ ; export PATH=${rr}:${PATH} ; unzip rom.zip ; rm -r rom.zip ; for i in $(ls *.zip || echo "no") ; do unzip -n $i || echo "no" ; done ;
+```
+```
+onedrive下载案列链接改法
+https://drive.google.com/uc?id=1mvZxjJRPp-dweFv7sE7jTxIvvUEXReFQ&export=download&confirm=t&uuid=zhlhlf
+https://drive.google.com/uc?id=1mvZxjJRPp-dweFv7sE7jTxIvvUEXReFQ&export=download
