@@ -16,6 +16,12 @@ on:
         default: 'true'
         type: boolean   
 
+      clear:
+        description: 'clear?'
+        required: true
+        default: 'false'
+        type: boolean   
+
 jobs:
     build:
       runs-on: ubuntu-20.04
@@ -23,7 +29,11 @@ jobs:
       steps:
         - name: 获取本仓库源码
           uses: actions/checkout@main
-            
+        
+        - name: 打扫空间
+          if: github.event.inputs.ssh == 'true'
+          uses: rokibhasansagar/slimhub_actions@main
+
         - name: 操作
           run: |       
               mkdir 666
