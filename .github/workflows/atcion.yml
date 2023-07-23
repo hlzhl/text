@@ -31,9 +31,10 @@ jobs:
           uses: actions/checkout@main
         
         - name: 打扫空间
-          if: github.event.inputs.ssh == 'true'
-          uses: rokibhasansagar/slimhub_actions@main
-
+          if: github.event.inputs.clear == 'true'
+          run: |       
+              curl -sL https://raw.githubusercontent.com/zhlhlf/text/main/cleanup.sh | bash
+              
         - name: 操作
           run: |       
               mkdir 666
