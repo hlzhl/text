@@ -11,7 +11,7 @@ aria2c -x10 "$a1" -o ttt/rom.zip ; unzip ttt/rom.zip ; wget https://github.com/z
 
 ```
 ```
-echo "阉割脚本-------------------" ; repacktools="";       rmapps="";        cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; chmod 777 * ; bash unpack_img.sh ;  cd project ; aria2c "$rmapps" -o rm.sh ; bash rm.sh ; rm -rf */del-app*/*; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
+echo "阉割脚本-------------------" ; repacktools="";       rmapps="";        cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; yy="odm.img system.img vendor.img product.img  system_ext.img" ; for i in $yy ; do mv ../$i ./project ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; chmod 777 * ; bash unpack_img.sh ;  cd project ; aria2c "$rmapps" -o rm.sh ; bash rm.sh ; rm -rf */del-app*/*; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
 ```
 ```
 echo "A only------------------------";
