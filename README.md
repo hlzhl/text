@@ -12,7 +12,7 @@ aria2c -x10 "$url" -o ttt/rom.zip ; unzip ttt/rom.zip ; wget https://github.com/
 
 ```
 ```
-echo "阉割脚本-------------------" ; repacktools="";        cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; yy="odm.img system.img system_ext.img" ; for i in $yy ; do mv ../$i ./project ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; rm -rf repacktools.zip ; rm -rf img_tools ; chmod 777 * ; bash unpack_img.sh ;  cd project ; wget "https://watery-quill-felidae.glitch.me/newTb5/%E4%B8%80%E5%8A%A09r/pn-rm.sh" -O pnrm.sh ; bash pnrm.sh 1 "jczhl" ; ls */*app* ; rm -rf *.img ; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
+echo "阉割脚本-------------------" ; repacktools="";    rms="";    cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; yy="odm.img system.img system_ext.img" ; for i in $yy ; do mv ../$i ./project ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; rm -rf repacktools.zip ; rm -rf img_tools ; chmod 777 * ; bash unpack_img.sh ;  cd project ; curl -sL "$rms" | bash ; ls */*app* ; rm -rf *.img ; cd ../ ; bash repack_img.sh ; mv project/out/* ../ ; cd ../ ; rm -rf work ; cd ../../ ;
 ```
 ```
 echo "A only------------------------";
