@@ -6,7 +6,7 @@ mkdir /home/runner/.config/rclone/ || echo "明"
 mv rclone.conf /home/runner/.config/rclone/rclone.conf
 mkdir zhlhlf || echo "明"
 rclone mount onedrive:/$2 ./zhlhlf --umask 000 --daemon
-echo -e "\n"
+echo "\n"
 
 for i in $(ls 666)
 do
@@ -14,6 +14,6 @@ sizel=$(du -sb "666/$i" | awk '{print $1}')
 echo "$(( $sizel / 1024/1024)) m   $i" 
 done
 
-echo -e "\n"
+echo "\n"
 rclone copy 666 zhlhlf/ 
 ls zhlhlf
