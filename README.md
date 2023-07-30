@@ -12,7 +12,7 @@ aria2c -x10 "$url" -o ttt/rom.zip ; unzip ttt/rom.zip ; wget https://github.com/
 
 ```
 ```
-echo "阉割脚本-------------------" ; repacktools="";    rms="";    cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; yy="system.img system_ext.img" ; for i in $yy ; do mv ../$i ./project ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; rm -rf repacktools.zip ; rm -rf img_tools ; chmod 777 * ; sudo bash unpack_img.sh ;  cd project ; curl -sL "$rms" | sudo bash ; ls */*app* ; rm -rf *.img ; cd ../ ; sudo bash repack_img.sh ; sudo mv project/out/* ../ ; cd ../ ; sudo rm -rf work ; cd ../../ ;
+echo "阉割脚本-------------------" ; repacktools="";    rms="";    cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; yy="my* system.img system_ext.img" ; for i in $yy ; do mv ../$i ./project || echo "没有$i" ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; mv img_tools/* ./ ; rm -rf repacktools.zip ; rm -rf img_tools ; chmod 777 * ; sudo bash unpack_img.sh ;  cd project ; curl -sL "$rms" | sudo bash ; ls */*app* ; rm -rf *.img ; cd ../ ; sudo bash repack_img.sh ; sudo mv project/out/* ../ ; cd ../ ; sudo rm -rf work ; cd ../../ ;
 ```
 ```
 echo "A only------------------------";
