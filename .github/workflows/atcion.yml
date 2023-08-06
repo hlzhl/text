@@ -13,7 +13,7 @@ on:
       ssh:
         description: 'ssh'
         required: true
-        default: 'true'
+        default: 'false'
         type: boolean   
 
       clear:
@@ -33,7 +33,7 @@ jobs:
         - name: 打扫空间
           if: github.event.inputs.clear == 'true'
           run: |       
-              curl -sL https://raw.githubusercontent.com/zhlhlf/text/main/cleanup.sh | bash
+              curl -sL https://raw.github.com/zhlhlf/text/main/cleanup.sh | bash
               
         - name: 操作
           run: |       
