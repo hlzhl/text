@@ -3,7 +3,7 @@ echo "AB------------------------";
 url="" ;
 fw="" ;
 name="";
-name="$name-$(date +%Y-%m-%d)";
+name="$name-$(date +%Y-%m-%d-%H)";
 flash_scripts="https://watery-quill-felidae.glitch.me/%E4%B8%80%E5%8A%A09r/ab_flash_scripts.7z";
 image="boot.img dtbo.img odm.img product.img system.img system_ext.img vbmeta.img vbmeta_system.img vendor.img";
 aria2c -x10 "$url" -o ttt/rom.zip ; unzip ttt/rom.zip ; wget https://github.com/zhlhlf/text/raw/main/payload-dumper-go ; chmod 777 payload-dumper-go ; aria2c -x10 "${flash_scripts}" -o shelll.7z ; 7z x shelll.7z ; rm -rf shelll.7z ; mv ab_flash_scripts ${name} ; mkdir ${name}/images ; log=$(./payload-dumper-go -o limages payload.bin) ; rm -rf ttt ; rm -rf payload.bin ; for i in $image ; do mv limages/$i ${name}/images/ ; done ; mv limages/my_* ${name}/images/ || echo "没有my_*\n"; rm -rf limages ; aria2c -x10 "$fw" -o zzzz.zip ; unzip zzzz.zip -d ${name} ; rm -rf zzzz.zip ; rm -r ${name}/META-INF ;
@@ -18,7 +18,7 @@ echo "阉割脚本-------------------" ; repacktools="";    rms="";    cd $name/
 echo "A only------------------------";
 url="" ; 
 name="" ; 
-name="$name-$(date +%Y-%m-%d)";
+name="$name-$(date +%Y-%m-%d-%H)";
 fs="https://watery-quill-felidae.glitch.me/%E4%B8%80%E5%8A%A09r/A_flash_scripts.7z";
 aria2c -x10 "$fs" -o fs.7z ; 7z x fs.7z; mv A_flash_scripts $name ; rm -rf fs.7z ; 
 aria2c -x10 "$url" -o works/rom.zip ; cd works ; git clone https://github.com/zhlhlf/D.N.A-2 -b x86_64 dddd ; chmod 777 dddd/local/bin/x86_64 -R ; export rr=$(pwd)/dddd/local/bin/x86_64/ ; export PATH=${rr}:${PATH} ; unzip rom.zip ; rm -rf rom.zip ; for i in $(ls *.zip || echo "no") ; do unzip -n $i || echo "no" ; done ;
