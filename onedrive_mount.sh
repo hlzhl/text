@@ -4,7 +4,9 @@ wget -q https://raw.github.com/zhlhlf/text/main/rclone.conf > /dev/null
 log=$(curl -s https://rclone.org/install.sh | sudo bash)
 mkdir /home/runner/.config/rclone/ || echo "明"
 mv rclone.conf /home/runner/.config/rclone/rclone.conf
-mkdir zhlhlf || echo "明"
+umount zhlhlf || echo 
+rm -rf zhlhlf || echo 
+mkdir zhlhlf || echo 
 rclone mount onedrive:/$2 ./zhlhlf --umask 000 --daemon
 echo "\n"
 
