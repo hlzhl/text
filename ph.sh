@@ -31,4 +31,8 @@ do
 python ph.py $i
 done
 
-ls phv
+for i in $(ls phv)
+do
+sizel=$(du -sb "phv/$i" | awk '{print $1}')
+echo "$(( $sizel / 1024/1024)) m   $i" 
+done
