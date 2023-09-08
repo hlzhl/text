@@ -30,3 +30,5 @@ for i in $@
 do
 python ph.py $i
 done
+
+ls phv
