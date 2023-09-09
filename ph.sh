@@ -11,7 +11,7 @@ pip install youtube-dl
     
 for i in $@
 do
-youtube-dl $i &
+youtube-dl -o '%(title)s.%(ext)s' -f best --external-downloader aria2c --external-downloader-args '-x 10' $i &
 done
 wait
 
