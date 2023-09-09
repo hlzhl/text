@@ -4,15 +4,19 @@ if [ "a$1" = "a" ];then
     sh ph.sh http://xxx http://xxx "
     exit
 fi
-rm -rf 666
-mkdir 666
+
+if [ ! -d 666 ];then
+    mkdir 666
+fi
+
 cd 666
 pip install youtube-dl
     
 for i in $@
 do
-youtube-dl -o '%(title)s.%(ext)s' -f best --external-downloader aria2c --external-downloader-args '-x 10' $i &
+    youtube-dl -o '%(title)s.%(ext)s' -f best --external-downloader aria2c --external-downloader-args '-x 10' $i &
 done
+
 wait
 
 cd ../
