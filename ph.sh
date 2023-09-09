@@ -11,8 +11,10 @@ pip install youtube_dl
     
 for i in $@
 do
-youtube_dl $i
+youtube_dl $i &
 done
+wait
+
 cd ../
 for i in $(ls 666)
 do
