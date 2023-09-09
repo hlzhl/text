@@ -7,11 +7,11 @@ fi
 rm -rf 666
 mkdir 666
 cd 666
-pip install youtube_dl
+pip install youtube-dl
     
 for i in $@
 do
-youtube_dl $i &
+youtube-dl $i &
 done
 wait
 
