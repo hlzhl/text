@@ -14,13 +14,7 @@ pip install youtube-dl
     
 for i in $@
 do
-    youtube-dl -o '%(title)s.%(ext)s' -f best --external-downloader aria2c --external-downloader-args '-x 10' $i 
+    youtube-dl -o '%(title)s.%(ext)s' -f best $i 
 done
 
 
-cd ../
-for i in $(ls 666)
-do
-sizel=$(du -sb "666/$i" | awk '{print $1}') || echo ""
-echo "$(( $sizel / 1024/1024)) m   $i"  || echo ""
-done
