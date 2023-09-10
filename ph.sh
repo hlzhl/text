@@ -1,3 +1,4 @@
+  GNU nano 4.8                                                                                                     ph.sh                                                                                                                
 
 if [ "a$1" = "a" ];then
     echo "
@@ -17,10 +18,12 @@ for i in $@
 do
     youtube-dl -o '%(title)s.%(ext)s' -f best $i 
 done
+cd ../
 
 IFS=\r\n
 for i in $(ls 666)
 do
+echo $i
 sizel=$(du -sb "666/$i" | awk '{print $1}') || echo ""
 echo "$(( $sizel / 1024/1024)) m   $i"  || echo ""
 done
