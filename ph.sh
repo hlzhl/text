@@ -19,6 +19,7 @@ done
 
 
 cd ../
+IFS=\n
 for i in $(ls 666)
 do
 sizel=$(du -sb "666/$i" | awk '{print $1}')
