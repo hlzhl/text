@@ -1,4 +1,4 @@
-  GNU nano 4.8                                                                                                     ph.sh                                                                                                                
+                                                                                             ph.sh                                                                                                                
 
 if [ "a$1" = "a" ];then
     echo "
