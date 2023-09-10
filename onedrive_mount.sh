@@ -10,6 +10,7 @@ mkdir zhlhlf || echo
 rclone mount onedrive:/$2 ./zhlhlf --umask 000 --daemon
 echo "\n"
 
+IFS=\n
 for i in $(ls 666)
 do
 sizel=$(du -sb "666/$i" | awk '{print $1}')
