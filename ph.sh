@@ -11,10 +11,11 @@ fi
 
 cd 666
 pip install youtube-dl
-    
+
+
 for i in $@
 do
     youtube-dl -o '%(title)s.%(ext)s' -f best $i 
 done
 
-
+IFS=\r\n
