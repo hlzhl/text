@@ -22,6 +22,6 @@ cd ../
 IFS=\n
 for i in $(ls 666)
 do
-sizel=$(du -sb "666/$i" | awk '{print $1}')
-echo "$(( $sizel / 1024/1024)) m   $i" 
+sizel=$(du -sb "666/$i" | awk '{print $1}') || echo ""
+echo "$(( $sizel / 1024/1024)) m   $i"  || echo ""
 done
