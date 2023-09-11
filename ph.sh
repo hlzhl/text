@@ -1,5 +1,4 @@
-                                                                                             ph.sh                                                                                                                
-
+                                                                                                         
 if [ "a$1" = "a" ];then
     echo "
     sh ph.sh http://xxx http://xxx "
