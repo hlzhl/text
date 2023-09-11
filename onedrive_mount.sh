@@ -11,7 +11,7 @@ rclone mount onedrive:/$2 ./zhlhlf --umask 000 --daemon
 echo "\n"
 
 
-IFS=\r\n
+
 for i in $(ls 666)
 do
 echo $i
