@@ -12,12 +12,22 @@ echo "\n"
 
 
 
-for i in $(ls 666)
+list=$(find 666/*)
+i=1
+while true
 do
-echo $i
-sizel=$(du -sb "666/$i" | awk '{print $1}') || echo ""
-echo "$(( $sizel / 1024/1024)) m   $i"  || echo ""
+tt=$(sed -n ${i}p <<end
+$list
+end
+)
+i=$(($i+1))
+if [ ! $tt ];then
+    break
+fi
+sizel=$(du -sb "$tt" | awk '{print $1}')
+echo "$(( $sizel / 1024/1024)) m   $(basename "$tt")"
 done
+
 
 echo "\n"
 rclone copy 666 zhlhlf/ 
