@@ -21,7 +21,7 @@ $list
 end
 )
 i=$(($i+1))
-if [ ! $tt ];then
+if [ ! "$tt" ];then
     break
 fi
 sizel=$(du -sb "$tt" | awk '{print $1}')
