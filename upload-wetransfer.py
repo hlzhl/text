@@ -6,6 +6,7 @@ import time
 import requests
 import hashlib
 import os
+import sys
 
 class We:
     def __init__(self):
