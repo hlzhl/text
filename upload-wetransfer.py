@@ -6,9 +6,8 @@ import time
 import requests
 import hashlib
 import os
-import sys
 
-class we:
+class We:
     def __init__(self):
         """
         wetransfer.com tool for anonymously uploading and downloading files.
@@ -26,6 +25,7 @@ class we:
     def upload(self, path: str, display_name: str = '', message: str = ''):
         """Returns a json containing the metadata and the link to the uploaded file/folder"""
 
+        print("Uploading", os.path.basename(path))
         if display_name == '':
             display_name = os.path.basename(path)
         files, type = self.__get_files(path)
@@ -280,6 +280,7 @@ class we:
                     if response.status_code != 200:
                         raise Exception(
                             'Error on upload_chunks\n', response.text)
+            print(f'Uploaded {os.path.basename(file_path)}')
         return True
 
     def __finalize_chunks_upload(self, transfer_id: str):
