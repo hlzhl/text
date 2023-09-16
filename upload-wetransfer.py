@@ -305,7 +305,7 @@ class We:
         return payload
 
 if __name__ == "__main__":
-    qw=we()
+    qw=We()
     for i in sys.argv[2:]:
         if sys.argv[1] == "-u":
           print(i)
