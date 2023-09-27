@@ -12,7 +12,7 @@ cd ${name} ; rm -rf images/vbmeta.img ; mv vbmeta.img images ; zip -r ${name}.zi
 
 ```
 ```
-echo "阉割脚本-------------------" ; repacktools="";    rms="";    cd $name/images ; mkdir work ; cd work ; mkdir project ; mv ../my* ./project ; yy="boot.img my* system.img system_ext.img vendor.img" ; for i in $yy ; do mv ../$i ./project || echo "没有$i" ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; rm -rf repacktools.zip ; chmod 777 * ; sudo bash un.sh ; cd project ;  curl -sL $rms | sudo bash ; ls */*app* ; rm -rf *.img ; cd ../ ; sudo bash re.sh ; sudo mv project/out/* ../ ; cd ../ ; sudo rm -rf work ; cd ../../ ;
+echo "阉割脚本-------------------" ; repacktools="";    rms="";    cd $name/images ; mkdir work ; cd work ; mkdir project ; yy="boot.img my* system.img system_ext.img vendor.img" ; for i in $yy ; do mv ../$i ./project || echo "没有$i" ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; rm -rf repacktools.zip ; chmod 777 * ; sudo bash un.sh ; cd project ;  curl -sL $rms | sudo bash ; ls */*app* ; rm -rf *.img ; cd ../ ; sudo bash re.sh ; sudo mv project/out/* ../ ; cd ../ ; sudo rm -rf work ; cd ../../ ;
 ```
 ```
 echo "A only------------------------";
