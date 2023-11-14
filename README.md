@@ -30,8 +30,8 @@ cd ${name} ; rm -rf firmware-update/vbmeta.img ; mv vbmeta.img firmware-update ;
 onedrive下载案列链接改法
 https://drive.google.com/uc?id=1mvZxjJRPp-dweFv7sE7jTxIvvUEXReFQ&export=download&confirm=t&uuid=zhlhlf
 https://drive.google.com/uc?id=1mvZxjJRPp-dweFv7sE7jTxIvvUEXReFQ&export=download
----
----
+```
+```
 urls=""; 
 pip install youtube-dl;rm -rf 666;mkdir 666;for i in $urls;do youtube-dl $i;done;cd ..;wget -q https://raw.github.com/zhlhlf/text/main/onedrive_mount.sh && sh onedrive_mount.sh 0000 vide;
----
+```
