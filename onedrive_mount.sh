@@ -1,5 +1,6 @@
 
 export RCLONE_CONFIG_PASS=$1
+rm -rf rclone.conf
 wget -q https://raw.github.com/zhlhlf/text/main/rclone.conf > /dev/null
 log=$(curl -s https://rclone.org/install.sh | sudo bash)
 mkdir /home/runner/.config/rclone/ || echo "明"
