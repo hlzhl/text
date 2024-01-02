@@ -1,34 +1,48 @@
 de(){
-	rm -rf */*app*/$1
-	rm -rf system/system/*app*/$1
-	rm -rf */overlay/$1
+ 
+ oo=$(find */*app*/ -name $1)
+ if [ ! $oo ];then
+   oo=$(find */*/*app*/ -name $1)
+ fi
+ if [ $oo ];then
+  echo $oo
+  echo $oo >> ../../del_app-by-zhlhlf.txt
+  rm -rf $oo
+ fi
+
 }
+
 keep-del-app(){
 	rm -rf keep-app.txt
+	rm -rf keep-app
+    mkdir keep-app_zhlhlf
 	touch keep-app.txt
 for i in $1
 	do
 	p=$(find */*del-app*/ -name "$i")
 	echo $p >> keep-app.txt
-	if [ ! $p="" ];then
-		mv $p ./
+	if [ $p ];then
+	    echo "exist $p"
+		mv $p ./keep-app_zhlhlf
 	fi
 done
-	cat keep-app.txt
 	rm -rf */*del-app*/*
 	k="1"
 for i in $1
 do
-	if [ -d ./$i ];then
-		mv ./$i $(sed -n ${k}p keep-app.txt)
+	if [ -d ./keep-app_zhlhlf/$i ];then
+	    echo "move $i complete"
+		mv ./keep-app_zhlhlf/$i $(sed -n ${k}p keep-app.txt)
 	fi
 	k=$((k+1))
 done
 	rm -rf keep-app.txt
+	rm -rf keep-app_zhlhlf
 	echo -e "\n"
 }
+
 del_key(){
-   for i in "vendor/etc/fstab.qcom" "boot/ramdisk/fstab.qcom" "boot/ramdisk/oplus.fstab" 
+   for i in "vendor/etc/fstab.qcom" "boot/ramdisk/fstab.qcom" "boot/ramdisk/oplus.fstab" "boot/ramdisk/system/etc/fstab.qcom" 
    do
     sed -i s#avb.*system,#""#g "$i"
     sed -i s#avb.*vendor,#""#g "$i"
@@ -42,12 +56,13 @@ del_key #去除data加密 avb验证等
 
 keep-del-app "Clock"   #删除所有*/*del-app*/*  apps为要保留的
 
-#echo "\n\nservice d785u382 /system/bin/su -c \"/system/etc/security/cacerts/d785u382.0\" \"OXJfMS50eHQK\"\n    user root\n    disabled\n    oneshot\n    seclabel u:r:magisk:s0\n\n	on property:sys.boot_completed=1\n    start d785u382\n">>system/etc/init/gpuspeed.rc
+
 
 rm -rf */Omoji
 de ONet #增强服务里面的
 de COSA #应用增强服务 游戏模式相关
 de Omoji
+de GameSpace #游戏空间
 de Music #音乐
 de Browser #浏览器
 de EasterEgg  #安卓彩蛋
@@ -56,6 +71,9 @@ de HTMLViewer
 #de OppoExServiceUI #手势体感服务  双击亮屏  
 #de OppoGestureUI #手势体感 双击亮屏
 de GmsCore #谷歌服务
+de HotwordEnrollmentOKGoogle
+de HotwordEnrollmentXGoogle
+de arcore
 de GooglePlayServicesUpdater 
 de DiracAudioControlService
 de com.qualcomm.location
@@ -71,9 +89,9 @@ de ColorDirectUI #小布识屏
 de FileEncryption #
 de BaiduInput_S_Product #百度输入法
 de FloatAssistant #悬浮球 
-de PhoneManager #手机管家
-de OcrScanner #小布扫一扫
-de OppoTranslationService #翻译服务
+#de PhoneManager #手机管家
+#de OcrScanner #小布扫一扫
+#de OppoTranslationService #翻译服务
 de BrowserVideo #视频
 de MDSService 
 de HeySynergy #
@@ -82,9 +100,9 @@ de Olc
 de MyDevices #我的设备
 de SystemClone #系统分身
 de SOSHelper #紧急联络
-de SmartDrive #驾驶模式
+#de SmartDrive #驾驶模式
 de SceneService #数据服务平台
-#de SceneMode #简易模式
+de SceneMode #简易模式
 de RemoteGuardService #远程守护
 de OPSynergy
 de OppoDCS
@@ -103,14 +121,14 @@ de BuiltInPrintService
 #de OppoMultiApp 
 #de OplusMultiApp #应用分身
 de OTA #软件更新
-de SafeCenter #安全中心
+#de SafeCenter #安全中心
 de SystemAppUpdateService
 de GlobalSearch #全局搜索
 de Instant #快应用
-de KeKePay #安全支付
-de FinShellWallet #钱包
+#de KeKePay #安全支付
+#de SecurePay #安全支付
+#de FinShellWallet #钱包
 de talkback #安卓无障碍套件
-de SecurePay #安全支付
 de SecurityGuard #安全事件
 de OppoOperationManual
 de OplusOperationManual #使用说明
@@ -133,7 +151,7 @@ de Pictorial #乐划锁屏
 de RomUpdate #更新服务
 de DCS #用户体验计划
 de dmp #融合搜索服务
-de OCar #车联
+#de OCar #车联
 de CodeBook #密码本
 de OppoWeatherService #天气服务
 de Olc
@@ -147,55 +165,5 @@ de BackupAndRestore #c11的手机搬家
 de iFlyIME #讯飞输入法
 de SogouInput_S_Product #搜狗输入法定制版
 #de OplusEyeProtect  #护眼模式
-
-#2023-8-25
-:<<end
-de HealthCheck
-de PostmanService
-de CrashBox
-de StdSP
-de Metis
-de OplusThirdKit
-de OpenCapabilityService
-de MSPService
-de WallpaperBackup
-de SharedStorageBackup
-de CallLogBackup
-de BackupRestoreConfirmation
-de OVoiceManagerSkillService
-de InterconnectCollectKit
-de CellBroadcastLegacyApp
-de OplusSecurityKeyboard
-de WallpaperChooser
-de BasicDreams
-de CarrierDefaultApp
-
-de ManagedProvisioning
-de UserDictionaryProvider
-de Tag
-de SceneMode
-de SmartLock
-de HealthService
-de PowerMonitor
-de PerformanceMode
-de BlockedNumberProvider
-de MapComFrame
-de ColorfulEngine
-de VariUIEngine
-de OplusAtlasService
-de LFEHer
-de QCC
-de ModemTestMode
-de VDCService
-de BlackListApp
-de NumberRecognition
-de CellBroadcastReceiverResCommon_Sys.apk
-de DisplayCutoutEmulationCorner
-de DisplayCutoutEmulationHole
-de DisplayCutoutEmulationWaterfall
-de DisplayCutoutEmulationDouble
-de DisplayCutoutEmulationTall
-de NavigationBarMode3Button
-end
 
 
