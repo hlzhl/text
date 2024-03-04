@@ -12,7 +12,7 @@ cd ${name} ; rm -rf images/vbmeta.img ; mv vbmeta.img images ; zip -r ${name}.zi
 
 ```
 ```
-echo "阉割脚本-------------------" ; repacktools="https://raw.githubusercontent.com/zhlhlf/text/main/repacktools.zip";    rms="http://47.115.224.103:5211/d/5tb/%E4%B8%80%E5%8A%A09r/%E7%B3%BB%E7%BB%9F%E9%98%89%E5%89%B2%E8%AE%A1%E5%88%92/coloros-a14.sh";    cd $name/images ; mkdir work ; cd work ; mkdir project ; yy="boot.img my* system.img system_ext.img vendor.img product.img" ; for i in $yy ; do mv ../$i ./project || echo "没有$i" ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; rm -rf repacktools.zip ; chmod 777 * ; sudo bash un.sh ; cd project ;  curl -sL $rms | sudo bash ; ls */*app* ; rm -rf *.img ; cd ../ ; sudo bash re.sh ; sudo mv project/out/* ../ ; cd ../ ; sudo rm -rf work ; cd ../../ ;
+echo "阉割脚本-------------------" ; repacktools="https://raw.githubusercontent.com/zhlhlf/text/main/sys-del_project/repacktools.zip";    rms="https://raw.githubusercontent.com/zhlhlf/text/main/sys-del_project/coloros-a14.sh";    cd $name/images ; mkdir work ; cd work ; mkdir project ; yy="boot.img my* system.img system_ext.img vendor.img product.img" ; for i in $yy ; do mv ../$i ./project || echo "没有$i" ; done ; aria2c -x10 "$repacktools" -o repacktools.zip  ; unzip repacktools.zip ; rm -rf repacktools.zip ; chmod 777 * ; sudo bash un.sh ; cd project ;  curl -sL $rms | sudo bash ; ls */*app* ; rm -rf *.img ; cd ../ ; sudo bash re.sh ; sudo mv project/out/* ../ ; cd ../ ; sudo rm -rf work ; cd ../../ ;
 ```
 ```
 echo "A only------------------------";
