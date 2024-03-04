@@ -36,7 +36,8 @@ jobs:
               curl -sL https://raw.github.com/zhlhlf/text/main/cleanup.sh | bash
               
         - name: 操作
-          run: |       
+          run: |  
+              RCK="${{ secrets.RCK }}"
               mkdir 666
               ${{ github.event.inputs.shell }}
               
