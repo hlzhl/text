@@ -26,7 +26,7 @@ do
      del=0 && break
     fi
   done
-  if [ $del ];then
+  if [ $del == 1 ];then
     rm -rf $i
     echo "删除--- $i"
   fi
@@ -46,7 +46,7 @@ del_key(){
 
 del_key #去除data加密 avb验证等
 
-keep-del-app "Clock"   #删除所有*/*del-app*/*  apps为要保留的
+keep-del-app "Clock FileManager KeKeThemeSpace "   #删除所有*/*del-app*/*  apps为要保留的
 
 rm -rf */Omoji
 
