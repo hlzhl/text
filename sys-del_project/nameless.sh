@@ -75,6 +75,7 @@ de PlayAutoInstallConfig
 de SoundPickerPrebuilt
 de WallpaperEmojiPrebuilt
 de arcore
+de PrebuiltGmsCore
 de talkback
 de AndroidAutoStubPrebuilt
 de BetterBugStub
