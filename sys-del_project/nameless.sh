@@ -76,6 +76,8 @@ de SoundPickerPrebuilt
 de WallpaperEmojiPrebuilt
 de arcore
 de PrebuiltGmsCore
+de PrebuiltGmsCoreSc
+de PrebuiltGmail
 de talkback
 de AndroidAutoStubPrebuilt
 de BetterBugStub
