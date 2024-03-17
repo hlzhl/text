@@ -72,7 +72,6 @@ de NgaResources
 de PixelThemesStub2022_and_newer
 de PixelWallpapers2022
 de PlayAutoInstallConfig
-de SoundPickerPrebuilt
 de WallpaperEmojiPrebuilt
 de arcore
 de PrebuiltGmsCore
