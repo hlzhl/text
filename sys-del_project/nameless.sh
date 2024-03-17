@@ -154,7 +154,6 @@ de AndroidAutoStubPrebuilt
 de LatinIMEGooglePrebuilt
 de LocationHistoryPrebuilt
 de DevicePersonalizationPrebuiltPixel2020
-de SoundPickerPrebuilt
 de Chrome
 de Chrome-Stub
 de GoogleTTS
