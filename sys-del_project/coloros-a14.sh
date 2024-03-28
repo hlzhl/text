@@ -16,7 +16,7 @@ keep-del-app(){
 echo "-------del-app------"
 for i in $(find */*del-app*/* -maxdepth 0)
 do
-  if [ ! $(echo $1 | grep -i -v $(basename $i) ];then
+  if [ ! $(echo $1 | grep -i -v $(basename $i)) ];then
     echo "保留--- $i"
   else
     rm -rf $i
