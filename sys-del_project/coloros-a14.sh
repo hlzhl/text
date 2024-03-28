@@ -29,6 +29,7 @@ do
   if [ $del == 1 ];then
     rm -rf $i
     echo "删除--- $i"
+    echo "删除--- $i" >> ../../../del_app-by-zhlhlf.txt
   fi
 done
 echo "-------del-app------"
