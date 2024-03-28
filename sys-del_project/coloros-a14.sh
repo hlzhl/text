@@ -16,7 +16,8 @@ keep-del-app(){
 echo "-------del-app------"
 for i in $(find */*del-app*/* -maxdepth 0)
 do
-  if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
+  uu=$(echo "$1" | grep -i $(basename $i))
+  if [ "$uu" ];then
     echo "    保留--- $i"
   else
     rm -rf $i
@@ -29,8 +30,9 @@ if [ -d "reserve" ];then
   echo "----存在reserve分区-----"
   for i in $(find reserve/*/*app*/* -maxdepth 0)
   do
-    if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
-      echo "    保留--- $i"
+   uu=$(echo "$1" | grep -i $(basename $i))
+   if [ "$uu" ];then
+   echo "    保留--- $i"
       name=$(basename $(ls $i))
       echo "name=\"$name\" info_1=\"0\" info_2=\"0\" location=\"del-app/$(basename $i)/$name\"" >> my_bigball/apkcerts.txt
       mv $i my_bigball/del-app/
