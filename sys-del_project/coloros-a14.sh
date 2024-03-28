@@ -31,7 +31,7 @@ if [ -d "reserve" ];then
   do
     if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
       echo "保留--- $i"
-      mv $i my_bigball/app/
+      mv $i my_bigball/del-app/
     else
       rm -rf $i
       echo "删除--- $i"
@@ -104,7 +104,7 @@ de AssistantScreen "速览"
 de DigitalWellBeing "应用使用时间"
 de ColorDirectUI "小布识屏"
 de FileEncryption ""
-de BaiduInput_S_Product "百度输入法"
+de BaiduInput_* "百度输入法"
 de FloatAssistant "悬浮球 "
 de OcrScanner "小布扫一扫"
 de *TranslationService "翻译服务"
