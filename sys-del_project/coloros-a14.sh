@@ -16,22 +16,30 @@ keep-del-app(){
 echo "-------del-app------"
 for i in $(find */*del-app*/* -maxdepth 0)
 do
-  del=1
-  name=$(basename $i)
-  
-  for j in $1
-  do
-    if [ $name == $j ];then
-     echo "保留--- $i"
-     del=0 && break
-    fi
-  done
-  if [ $del == 1 ];then
+  if [ ! $(echo $1 | grep -i -v $(basename $i) ];then
+    echo "保留--- $i"
+  else
     rm -rf $i
     echo "删除--- $i"
     echo "删除--- $i" >> ../../../del_app-by-zhlhlf.txt
   fi
 done
+
+if [ -d "reserve" ];then
+  echo "----存在reserve分区-----"
+  for i in $(find reserve/*/*app*/* -maxdepth 0)
+  do
+    if [ ! $(echo $1 | grep -i -v $(basename $i)) ];then
+      echo "保留--- $i"
+      mv $i my_bigball/app/
+    else
+      rm -rf $i
+      echo "删除--- $i"
+      echo "删除--- $i" >> ../../../del_app-by-zhlhlf.txt
+    fi
+  done
+fi
+
 echo "-------del-app------"
 }
 
@@ -47,7 +55,7 @@ del_key(){
 
 del_key #去除data加密 avb验证等
 
-keep-del-app "Clock FileManager KeKeThemeSpace "   #删除所有*/*del-app*/*  apps为要保留的
+keep-del-app "Clock FileManager KeKeThemeSpace"   #删除所有*/*del-app*/*  apps为要保留的
 
 rm -rf */Omoji
 
