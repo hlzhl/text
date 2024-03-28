@@ -16,7 +16,7 @@ keep-del-app(){
 echo "-------del-app------"
 for i in $(find */*del-app*/* -maxdepth 0)
 do
-  if [ ! $(echo $1 | grep -i -v $(basename $i)) ];then
+  if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
     echo "保留--- $i"
   else
     rm -rf $i
@@ -29,7 +29,7 @@ if [ -d "reserve" ];then
   echo "----存在reserve分区-----"
   for i in $(find reserve/*/*app*/* -maxdepth 0)
   do
-    if [ ! $(echo $1 | grep -i -v $(basename $i)) ];then
+    if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
       echo "保留--- $i"
       mv $i my_bigball/app/
     else
