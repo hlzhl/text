@@ -17,7 +17,7 @@ echo "-------del-app------"
 for i in $(find */*del-app*/* -maxdepth 0)
 do
   if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
-    echo "保留--- $i"
+    echo "    保留--- $i"
   else
     rm -rf $i
     echo "删除--- $i"
@@ -31,9 +31,10 @@ if [ -d "reserve" ];then
   do
     if [ ! $(echo "$1" | grep -i -v $(basename $i)) ];then
       echo "    保留--- $i"
-      echo "name=\"$(ls $i | grep "*.apk")\" info_1=\"0\" info_2=\"0\" location=\"del-app/$(basename $i)/$(ls $i | grep "*.apk")\"" >> my_bigball/apkcerts.txt
+      name=$(basename $(ls $i))
+      echo "name=\"$name\" info_1=\"0\" info_2=\"0\" location=\"del-app/$(basename $i)/$name\"" >> my_bigball/apkcerts.txt
       mv $i my_bigball/del-app/
-          else
+    else
       rm -rf $i
       echo "删除--- $i"
       echo "删除--- $i" >> ../../../del_app-by-zhlhlf.txt
