@@ -183,5 +183,20 @@ de iFlyIME "讯飞输入法"
 de SogouInput_S_Product "搜狗输入法定制版"
 #de *EyeProtect "护眼模式"
 
+# 2024-3-29
+de CarLink ""
+de DigitalKeyFramework "数字车钥匙"
+de HealthCheck "常规检测"
+de BaiduInput* "百度输入"
+de AIUnit "AIUnit"
+de ColorfulEngine "多彩引擎"
+de VariUIEngine "百变引擎"
+de SmartLock "智能解锁"
+de DeepThinker "智慧能力服务"
+de HealthService "健康数据平台"
+de VDCService "外设融合框架"
+de SmartEngine "智能引擎？"
+de Metis "智慧决策服务"
+de OpenCapabilityService ""
 
 
