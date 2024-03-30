@@ -32,5 +32,6 @@ done
 
 
 echo "\n"
-rclone copy 666 zhlhlf/ 
+rclone copy --buffer-size=128M --multi-thread-streams=$(nproc --all) --sftp-stream-pool=$(nproc --all) 666 zhlhlf/ 
+echo "\n"
 ls zhlhlf
