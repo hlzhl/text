@@ -1,4 +1,4 @@
-del_key(){
+ del_key(){
    for i in "vendor/etc/fstab.qcom" "boot/ramdisk/fstab.qcom" "boot/ramdisk/oplus.fstab" 
    do
     sed -i s#avb.*system,#""#g "$i"
@@ -10,4 +10,3 @@ del_key(){
 
 
 del_key #去除data加密 avb验证等
-echo "ro.setupwizard.mode=DISABLED" >> system/system/build.prop
