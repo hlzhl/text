@@ -1,5 +1,5 @@
- del_key(){
-   for i in "vendor/etc/fstab.qcom" "boot/ramdisk/fstab.qcom" "boot/ramdisk/oplus.fstab" 
+del_key(){
+   for i in "vendor/etc/fstab.qcom" "boot/ramdisk/fstab.qcom" "boot/ramdisk/oplus.fstab" "boot/ramdisk/system/etc/fstab.qcom" 
    do
     sed -i s#avb.*system,#""#g "$i"
     sed -i s#avb.*vendor,#""#g "$i"
@@ -9,5 +9,3 @@
 }
 
 del_key #去除data加密 avb验证等
-
-
